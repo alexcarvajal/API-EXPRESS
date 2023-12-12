@@ -47,6 +47,8 @@
 | PASSWORD | String |
 | PORT     | INT    | 
 
+For security reasons, usernames and passwords are stored in the .env file
+
 ---
 
 ## Dependencies
@@ -56,3 +58,5 @@
    -   mongoose: "^8.0.3",
    -   nodemon: "^3.0.2"-
    -   uuid: "^9.0.1"
+
+

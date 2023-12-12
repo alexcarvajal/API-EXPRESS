@@ -1,24 +1,17 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
+const port = process.env.PORT || 3000;
+const routes = require('./api/routes/index')
 
-
-//Routes
-const PRODUCTOS= [{
-    id:1,
-    name:'laptop'
-},
-]
-
-app.get('/products',(req,res)=>{
-    console.log('Listening products')
-    res.json({
-        status:'success',
-        data:  {
-            products:PRODUCTOS
-        }
-    })
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`)
 })
 
-app.listen(3000,()=>{
-
+app.get('/', (req, res) => {
+    res.send('Welcome to my API')
 })
+
+app.use(express.json());
+
+routes(app);

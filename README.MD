@@ -1,6 +1,6 @@
 # APINODEJS
 
-## Estructura del proyecto
+## Project structure
 
 ```
 /
@@ -27,9 +27,19 @@
 |    |- productSchema.js
 |    |- userSchema.js
 ```
+---
+## Endpoints 
 
-## Variables de entorno
+### /api/products
+-   Path that returns the array with the products.
+### /api/users
+-   Path that returns the created users.
+### /api/price/{user_ID}/{nombre_producto}
+-   Route that returns the price with or without the discount or if out of stock
 
+
+--- 
+## Environment variables
 
 | NOMBRE   | TYPE   |
 | -------- | ------ |
@@ -38,9 +48,11 @@
 | PORT     | INT    | 
 
 ---
-## Endpoints 
 
-### /api/products
-### /api/brands
-### /api/users
-### /api/price/{user_ID}/{nombre_producto}
+## Dependencies
+
+   -   dotenv: "^16.3.1",
+   -   express: "^4.18.2",
+   -   mongoose: "^8.0.3",
+   -   nodemon: "^3.0.2"-
+   -   uuid: "^9.0.1"

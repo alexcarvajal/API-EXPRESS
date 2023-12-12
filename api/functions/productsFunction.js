@@ -2,14 +2,11 @@ const productSchema = require('../schemas/productSchema')
 const brandSchema = require('../schemas/brandSchema')
 
 const { v4: uuidv4 } = require('uuid');
-
-
 let products = []
  const getProducts = async () => {
     products = await productSchema.find()
     return products;
 }
-
  const getProductByID = async (id) => {
     try {
         const product = await productSchema.findById(id);
@@ -20,10 +17,9 @@ let products = []
         throw new Error('Ocurrió un error al buscar el producto');
     }
 }
-
  const createProduct = async (product) => {
     const brand = await brandSchema.find({ name: product.brand }).exec();
-    const specialPricing = (product.price * brand[0].discount) / 100;
+    const specialPricing = (product.price * brand[0].specialDiscountBrand) / 100;
     const newProduct = new productSchema({
         ...product,
         brand: brand[0].id,
@@ -42,7 +38,6 @@ let products = []
  const deleteProduct = async (id) => {
     await productSchema.findByIdAndDelete(id).exec();
 }
-
 module.exports ={
     getProducts,
     getProductByID,

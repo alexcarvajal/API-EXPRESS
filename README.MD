@@ -41,7 +41,7 @@
 --- 
 ## Environment variables
 
-| NOMBRE   | TYPE   |
+| NAME   | TYPE   |
 | -------- | ------ |
 | USER     | String |
 | PASSWORD | String |

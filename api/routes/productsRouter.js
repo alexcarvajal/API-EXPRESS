@@ -6,10 +6,7 @@ const { getProducts, getProductByID, createProduct, deleteProduct } = require ('
 router.get('/', async (req, res) => {
   console.log('Listening products')
   const products = await getProducts()
-  res.json({
-    status: 'success',
-    data: products
-  }).status(200)
+  res.json(products).status(200)
 })
 
 router.post('/', async (req, res) => {
